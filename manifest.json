@@ -5,7 +5,8 @@
   "description": "開いているタブから特定の文字列を検索し、ヒットしたタブを自動的にグループ化します。",
   "permissions": [
     "tabs",
-    "tabGroups"
+    "tabGroups",
+    "scripting"
   ],
   "host_permissions": [
     "<all_urls>"

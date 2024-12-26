@@ -14,11 +14,25 @@ document.addEventListener('DOMContentLoaded', () => {
       const tabs = await chrome.tabs.query({ currentWindow: true });
       const matchedTabs = [];
 
-      // タブの検索
+      // 各タブのコンテンツを検索
       for (const tab of tabs) {
-        if (tab.title.toLowerCase().includes(searchText.toLowerCase()) ||
-            tab.url.toLowerCase().includes(searchText.toLowerCase())) {
-          matchedTabs.push(tab);
+        try {
+          const [result] = await chrome.scripting.executeScript({
+            target: { tabId: tab.id },
+            func: (searchText) => {
+              const bodyText = document.body.innerText.toLowerCase();
+              return bodyText.includes(searchText.toLowerCase());
+            },
+            args: [searchText]
+          });
+
+          if (result.result) {
+            matchedTabs.push(tab);
+          }
+        } catch (err) {
+          console.warn(`Tab ${tab.id} could not be searched:`, err);
+          // chrome:// や edge:// などの特殊なページはスキップ
+          continue;
         }
       }
 
