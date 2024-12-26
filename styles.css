@@ -1,19 +1,21 @@
 body {
   width: 300px;
-  padding: 15px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 16px;
+  font-family: 'Segoe UI', 'Yu Gothic UI', sans-serif;
 }
 
 .container {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 16px;
 }
 
 h1 {
   font-size: 18px;
   margin: 0;
   color: #333;
+  text-align: center;
 }
 
 .search-box {
@@ -37,6 +39,7 @@ h1 {
   border-radius: 4px;
   cursor: pointer;
   font-size: 14px;
+  transition: background-color 0.2s;
 }
 
 #searchButton:hover {
@@ -44,7 +47,19 @@ h1 {
 }
 
 .result-message {
+  text-align: center;
+  padding: 8px;
+  border-radius: 4px;
   font-size: 14px;
-  color: #666;
-  padding: 8px 0;
+  min-height: 20px;
+}
+
+.result-message.success {
+  background-color: #e6f4ea;
+  color: #137333;
+}
+
+.result-message.error {
+  background-color: #fce8e6;
+  color: #c5221f;
 } 
