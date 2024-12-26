@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "タブ検索＆グループ化ツール",
+  "version": "1.0",
+  "description": "開いているタブから特定の文字列を検索し、ヒットしたタブを自動的にグループ化します。",
+  "permissions": [
+    "tabs",
+    "tabGroups"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/icon16.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  }
+} 
